@@ -9,7 +9,7 @@ import { renderToString } from 'react-dom/server';
 import qs from 'qs';
 
 const app = Express(); // eslint-disable-line new-cap
-const port = 3000;
+const port = 3001;
 
 // Serve static files
 app.use('/static', Express.static('static'));
@@ -20,11 +20,11 @@ app.use(handleRender);
 // We are going to fill these out in the sections to follow
 function handleRender(req, res) {
   const params = qs.parse(req.query);
-  const counter = parseInt(params.counter, 10) || 0;
+  const initState = parseInt(params.counter, 10) || 0;
 
   // Create a new Redux store instance
   // TODO sync store schema across client and server
-  const store = createStore(counterApp, counter);
+  const store = createStore(counterApp, initState);
 
   // Render the component to a string
   const html = renderToString(

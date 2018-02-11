@@ -2,7 +2,7 @@
   "name": "docker-ssr",
   "version": "1.0.0",
   "description": "A Dockerized SSR runtime to host your frontend webapp with",
-  "main": "index.js",
+  "main": "server.js",
   "repository": "git@github.com:thegreenhouseio/docker-ssr.git",
   "author": "Owen Buckley <owenbuckley13@gmail.com>",
   "license": "Apache-2.0",
@@ -10,7 +10,8 @@
     "lint": "eslint *.js ./src/**/*.jsx",
     "develop": "webpack-dev-server --config ./webpack.config.develop.js",
     "build": "rimraf ./static && webpack --config ./webpack.config.common.js",
-    "serve": "yarn run build && babel-node server.js"
+    "serve": "yarn run build && babel-node server.js",
+    "start": "babel-node server.js"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",

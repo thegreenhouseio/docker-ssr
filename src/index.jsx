@@ -1,3 +1,4 @@
+// TODO rename parent directory to fixture(s)?
 import React from 'react';
 import { hydrate, render } from 'react-dom';
 import { createStore } from 'redux';

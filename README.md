@@ -20,6 +20,8 @@ By focusing on these key developer experience points, we can try and cleanly abs
 1. hydrate vs render in client entry point (index.js)
 1. need to define API for syncing state schema between client and server
 1. need to define API for syncing mounting point across client and server (`id="app"`) in index.html / entry point and server
+1. Rename source to fixture(s)?
+1. Consumer provides build script / all source code via mount point?  main.js?
 
 ## Development
 The project provides a React project built by webpack in this repository for development / testing purposes.
@@ -30,3 +32,7 @@ To develop for this project first run `yarn install`
 - `yarn develop` - test client changes on webpack-dev-server (`http://localhost:3001`)
 - `yarn build` - build the client side assets only 
 - `yarn serve` - build the client side assets and start the express SSR server (`http://localhost:3001`)
+
+Docker commands
+`docker build -t ssr .`
+`docker run -p 3001:3001 -i -t ssr`
