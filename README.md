@@ -36,12 +36,20 @@ By focusing on these key developer experience points, we can try and cleanly abs
 ## Development
 The project provides a React project built by webpack in this repository for development / testing purposes.
 
+1. [ ] Install **Docker**
+1. [ ] Install **NodeJS**
+1. [ ] Install **Yarn** (optional, **npm** also supported)
+
+
 ### Docker commands
+
 To start the container and test
 ```shell
 $ docker build -t ssr .
 $ docker run -p 3001:3001 -i -t ssr
 ```
+
+Then open `localhost:3001` in your browser
 
 ### Task
 To develop with the React project (when in the container for example):
