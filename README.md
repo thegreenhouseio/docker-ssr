@@ -1,10 +1,20 @@
+![](https://www.docker.com/sites/default/files/horizontal.png)
 # docker-ssr
 A Docker container that mounts a local webpack build and server-side renders it.
 
-## Overview
-Server-side rendered applications often couple client and server code into one codebase.  I prefer to keep my frontend builds distinct from the backend implementation.  Static files are just static files and should be easily deployed to a webserver or S3, via FTP or SSH, whatever.  
+The goal being to allowing for a simple `docker-compose` of your frontend and being able share your SSR runtime between all your apps.  Cool, right?  😎
 
-So rather than mix `client` and `server` code and dependencies in one repository, I've created a Docker container that provides a SSR runtime environment and will just mount your `build` output directory (say a React app w/webpack) allowing you to `docker-compose` your frontend and share your SSR runtime between all your apps.  Yessssss..........
+## Overview
+Server-side rendered applications often couple client and server code into one codebase.  I prefer to keep my frontend builds distinct from the backend implementation.  Static files are just static files and should be easily deployed to a webserver or S3, via FTP or SSH, whatever.
+
+> This is more like building a better mouse trap, really
+> ![](https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX2831761.jpg)
+
+### In practice...
+So rather than mix **client** and **server** code and dependencies in one repository, I've created a Docker container that provides a SSR runtime environment that will an app to mounted to the container, based on a couple of configuration times
+- build output directory
+- Javascript entry point
+- HTML entry point
 
 ## Usage
 Work In Progress
@@ -26,13 +36,17 @@ By focusing on these key developer experience points, we can try and cleanly abs
 ## Development
 The project provides a React project built by webpack in this repository for development / testing purposes.
 
-To develop for this project first run `yarn install`
+### Docker commands
+To start the container and test
+```shell
+$ docker build -t ssr .
+$ docker run -p 3001:3001 -i -t ssr
+```
+
+### Task
+To develop with the React project (when in the container for example):
 
 - `yarn lint` - lint the project
 - `yarn develop` - test client changes on webpack-dev-server (`http://localhost:3001`)
 - `yarn build` - build the client side assets only 
 - `yarn serve` - build the client side assets and start the express SSR server (`http://localhost:3001`)
-
-Docker commands
-`docker build -t ssr .`
-`docker run -p 3001:3001 -i -t ssr`
