@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+// TODO webpack v4 upgrade
+// https://github.com/thegreenhouseio/docker-ssr/issues/9
 module.exports = {
   context: path.resolve(__dirname, 'src'),
 

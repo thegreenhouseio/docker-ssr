@@ -34,27 +34,30 @@ By focusing on these key developer experience points, we can try and cleanly abs
 1. Consumer provides build script / all source code via mount point?  main.js?
 
 ## Development
-The project provides a React project built by webpack in this repository for development / testing purposes.
+This repository provides a [**React**](https://reactjs.org/) project built with [**webpack**](https://webpack.js.org/) for development / testing purposes.  The intent is to act as a fixture for what's defined in _Dockerfile_.
 
-1. [ ] Install **Docker**
-1. [ ] Install **NodeJS**
-1. [ ] Install **Yarn** (optional, **npm** also supported)
+### Setup
+1. [ ] Install [**Docker**](https://www.docker.com/products/docker-desktop)
+1. [ ] Install [**NodeJS**](https://nodejs.org/en/) v8.x
+1. [ ] Optionally, install [**Yarn**](https://yarnpkg.com/en/docs/install)
 
 
-### Docker commands
+### Workflow
+Development is a two part process:
 
-To start the container and test
+#### 1) UI Application
+Develop with the React project and validate using available **npm** scripts (**Yarn** or **npm** supported):
+
+- `yarn lint` - lint the project source code
+- `yarn develop` - test changes with [**webpack-dev-server**](https://webpack.js.org/configuration/dev-server/)
+- `yarn build` - build the client side assets for production
+- `yarn serve` - build the client side assets and start the express server that has SSR enabled
+
+#### 2) Docker
+Next is to validate the changes using the Docker container
 ```shell
 $ docker build -t ssr .
 $ docker run -p 3001:3001 -i -t ssr
 ```
 
-Then open `localhost:3001` in your browser
-
-### Tasks
-To develop with the React project (when in the container for example):
-
-- `yarn lint` - lint the project
-- `yarn develop` - test client changes on webpack-dev-server (`http://localhost:3001`)
-- `yarn build` - build the client side assets only 
-- `yarn serve` - build the client side assets and start the express SSR server (`http://localhost:3001`)
+Then open `localhost:3001` in your browser.

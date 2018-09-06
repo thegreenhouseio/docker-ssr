@@ -6,6 +6,8 @@ RUN apt-get update \
     && apt-get install -y nodejs \
     && npm install -g yarn@^1.0.0
 
+# TODO the build output directory should be configurable (/app)
+# https://github.com/thegreenhouseio/docker-ssr/issues/8
 WORKDIR /app
 COPY package.json ./
 COPY yarn.lock ./
@@ -17,8 +19,11 @@ COPY ./src/containers/** ./src/containers/
 COPY ./src/components/** ./src/components/
 COPY ./static/** ./static/
 
-RUN yarn install
-
+# should configurable?
 EXPOSE 3001
+
+# TODO the install and start script should be configurable?
+# https://github.com/thegreenhouseio/docker-ssr/issues/3
+RUN yarn install
 
 CMD [ "npm", "start" ]
