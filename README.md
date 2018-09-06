@@ -51,7 +51,7 @@ $ docker run -p 3001:3001 -i -t ssr
 
 Then open `localhost:3001` in your browser
 
-### Task
+### Tasks
 To develop with the React project (when in the container for example):
 
 - `yarn lint` - lint the project
