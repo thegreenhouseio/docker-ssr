@@ -13,6 +13,11 @@
     "browser": true,
     "node": true
   },
+  "settings": {
+    "react": {
+      "version": "16.2"
+    }
+  },
   "plugins": ["react"],
   "rules": {
     "comma-dangle": [2,"never"],

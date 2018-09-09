@@ -1,8 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-// TODO webpack v4 upgrade
-// https://github.com/thegreenhouseio/docker-ssr/issues/9
 module.exports = {
   context: path.resolve(__dirname, 'src'),
 
@@ -13,14 +11,24 @@ module.exports = {
   entry: './index',
 
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'static')
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js'
   },
 
   module: {
-    rules: [
-      { test: /\.jsx$/, use: 'babel-loader' }
-    ]
+    rules: [{ 
+      test: /\.jsx$/, 
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: [
+            '@babel/preset-react'
+            // "@babel/preset-es2015", 
+            // "@babel/preset-stage-2"
+          ]
+        }
+      }
+    }]
   },
 
   plugins: [

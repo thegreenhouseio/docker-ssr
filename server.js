@@ -1,4 +1,4 @@
-// import path from 'path';
+// Express dependency is assumed as part of the Docker container
 import Express from 'express';
 import React from 'react';
 import { createStore } from 'redux';
@@ -23,7 +23,6 @@ function handleRender(req, res) {
   const initState = parseInt(params.counter, 10) || 0;
 
   // Create a new Redux store instance
-  // TODO sync store schema across client and server
   const store = createStore(counterApp, initState);
 
   // Render the component to a string
@@ -40,7 +39,9 @@ function handleRender(req, res) {
   res.send(renderFullPage(html, finalState));
 }
 
-// TODO sync DOM mount point across client and server
+// TODO sync index.html from _src/_ and bundle.js from webpack across client and server
+// https://github.com/thegreenhouseio/docker-ssr/issues/1
+// https://github.com/thegreenhouseio/docker-ssr/issues/2
 function renderFullPage(html, preloadedState) {
   return `
       <!doctype html>
@@ -62,4 +63,6 @@ function renderFullPage(html, preloadedState) {
   `;
 }
 
-app.listen(port);
+app.listen(port, () => {
+  console.log(`SSR server started at http://localhost:${port}`); // eslint-disable-line no-console
+});
