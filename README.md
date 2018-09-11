@@ -37,8 +37,8 @@ As expected, we have our frontend packages captured as `dependencies` since they
 
 Now to add SSR rendering, say an Express server and any of its related packages, we would need to add that to _package.json_.  For example:
 ```json
-"@babel/core@^7.0.0",
-"@babel/node@^7.0.0",
+"@babel/core": "^7.0.0",
+"@babel/node": "^7.0.0",
 "express": "^4.16.2",
 "pm2": "^2.7.2",
 ```
@@ -179,9 +179,9 @@ Then you can start it and view it at `http://localhost:3001`
 $ docker run -p 3001:3001 -i -t ssr
 ```
 
-Or SSH into it to explore around.  All files mounted are relative to `/`.
+Or SSH into it to explore around after you've started it.  All files mounted are relative to `/`.
 ```shell
-$ docker run --name ssr-app -i -t ssr
+$ docker exec -it <ssr-app> bash
 ```
 
 > See [this repo](https://github.com/thegreenhouseio/docker-nodejs-dev#development) for some additional Docker related workflows and commands.
