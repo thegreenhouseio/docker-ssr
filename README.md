@@ -1,6 +1,6 @@
 ![](https://www.docker.com/sites/default/files/horizontal.png)
 # docker-ssr
-A repository demonstrating the usage of **Docker** to containerize a Server Side Rendering (**SSR**) runtime for a web application; in this case [a simple **React** counter app using **Redux** and built with **webpack**](https://redux.js.org/recipes/serverrendering).
+A repository demonstrating the usage of **Docker** to containerize a Server Side Rendering (**SSR**) runtime for a web application; in this case [a simple **React** counter app using **Redux** and built with **webpack**](https://redux.js.org/recipes/serverrendering).  For my presentation slides on this topic, please checkout [this link](https://docs.google.com/presentation/d/1vPwqGmbAqy6zjQ7JaqbMoS1I_8oMfFYcgXf6setvMcI/edit?usp=sharing).
 
 > This project is currently a [work in progress](https://github.com/thegreenhouseio/docker-ssr/projects) as I continue to refactor the implementation to use a _docker-compose.yml_ file so as to be more configuration driven and reusable in way that it can be published to Docker Hub and used within other projects.  The React app included in the repo is here for convenience and testing / development purposes and not part of the implementation.
 
