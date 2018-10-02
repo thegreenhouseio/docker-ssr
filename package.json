@@ -1,6 +1,6 @@
 {
   "name": "docker-ssr",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Dockerized SSR runtime using Express.",
   "repository": "git@github.com:thegreenhouseio/docker-ssr.git",
   "author": "Owen Buckley <owenbuckley13@gmail.com>",
