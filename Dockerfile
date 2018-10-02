@@ -7,7 +7,7 @@ RUN apt-get update \
     && apt-get install -y curl vim git bzip2 ssh \
     && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
     && apt-get install -y nodejs \
-    && npm install -g yarn@^1.0.0 && yarn global add @babel/core@~7.0.0 @babel/node@~7.0.0 @babel/preset-react@~7.0.0 @babel/preset-env@~7.0.0
+    && npm install -g yarn@^1.0.0 && yarn global add express@~4.16.3 @babel/core@~7.0.0 @babel/node@~7.0.0 @babel/preset-react@~7.0.0 @babel/preset-env@~7.0.0
 
 # mount the host workspace / repository to root of the container
 COPY . ./

@@ -179,7 +179,7 @@ Then you can start it and view it at `http://localhost:3001`
 $ docker run -p 3001:3001 -i -t ssr
 ```
 
-Or SSH into it to explore around after you've started it.  All files mounted are relative to `/`.
+You can also initiate a bash session to explore around after you've started it.  All files mounted are relative to `/`.
 ```shell
 $ docker exec -it <ssr-app> bash
 ```
